@@ -17,7 +17,6 @@
           },
           "link": {
             "type": "string",
-            "format": "uri",
             "description": "The URL of the website to scrape or crawl. Must be a valid HTTP/HTTPS URL."
           },
           "optional_argument": {
@@ -25,7 +24,7 @@
             "description": "Optional JSON string containing additional parameters specific to the chosen function. For example: user_prompt, num_results, depth, max_pages, extraction_mode, steps, etc. The exact parameters depend on the selected scrapegraph_function."
           }
         },
-        "required": ["scrapegraph_function", "link"],
+        "required": ["scrapegraph_function", "link", "optional_argument"],
         "additionalProperties": false
       }
     }
