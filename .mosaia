@@ -1,0 +1,34 @@
+{
+  "name": "ScrapeGraphAI Tool",
+  "description": "A powerful web scraping tool that leverages ScrapeGraphAI's API to extract data from websites using various scraping functions including SmartScraper, SearchScraper, SmartCrawler, AgenticScraper, and more. Perfect for automated data extraction, web crawling, and content analysis tasks.",
+  "schema": {
+    "type": "function",
+    "function": {
+      "name": "scrapegraph_ai_tool",
+      "description": "Execute various ScrapeGraphAI functions to scrape and extract data from websites. Supports SmartScraper for single-page extraction, SearchScraper for search-based scraping, SmartCrawler for multi-page crawling, AgenticScraper for interactive scraping, Markdownify for converting pages to markdown, and basic Scrape functionality.",
+      "strict": false,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "scrapegraph_function": {
+            "type": "string",
+            "enum": ["smartscraper", "searchscraper", "crawl", "smartcrawler", "agenticscraper", "markdownify", "scrape"],
+            "description": "The ScrapeGraphAI function to execute. Options: 'smartscraper' for single page extraction, 'searchscraper' for search-based scraping, 'crawl'/'smartcrawler' for multi-page crawling, 'agenticscraper' for interactive scraping, 'markdownify' for markdown conversion, 'scrape' for basic scraping."
+          },
+          "link": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL of the website to scrape or crawl. Must be a valid HTTP/HTTPS URL."
+          },
+          "optional_argument": {
+            "type": "string",
+            "description": "Optional JSON string containing additional parameters specific to the chosen function. For example: user_prompt, num_results, depth, max_pages, extraction_mode, steps, etc. The exact parameters depend on the selected scrapegraph_function."
+          }
+        },
+        "required": ["scrapegraph_function", "link"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "envVars": ["SGAI_API_KEY"]
+}
